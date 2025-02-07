@@ -103,3 +103,12 @@
 .navbar-brand:hover::after {
   width: 50%;
 }    
+
+/* css for icon on footer  */
+
+.icon{
+  display: block;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ddd;
+}
