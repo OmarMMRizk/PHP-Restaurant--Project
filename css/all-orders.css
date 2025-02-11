@@ -1,0 +1,64 @@
+body {
+    color: white;
+}
+
+.order-history-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.order-card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: rgba(18, 17, 17, 0.78);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-5px);
+}
+
+.order-card .card-body {
+    padding: 20px;
+    position: relative;
+}
+
+.order-card h5 {
+    color: #ff4d25;
+    margin-bottom: 15px;
+}
+
+.order-card p {
+    margin: 5px 0;
+    color: white;
+}
+
+.order-card .reorder-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #ff4d25;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.order-card .reorder-btn:hover {
+    background-color: #ed2f04;
+}
+
+.no-orders {
+    text-align: center;
+    color: #777;
+    margin-top: 20px;
+}
+
+*p {
+    color: white;
+}
