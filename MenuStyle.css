@@ -5,9 +5,11 @@
     background: #3c3d37;
 }
 
-.card{
+
+#categories-nav .card{
     margin: 10px;
     background: rgb(236, 223, 204);
+
 }
 #navbarSupportedContent{
     background: #69756588;
@@ -15,14 +17,14 @@
     border: 1px solid rgb(30, 32, 30);
     border-radius: 10px;
 }
-.nav-item >a {
+.nav-items >a {
     background-color: rgb(236, 223, 204);  
     width: 112%;
-    font-size: 30px;
+    font-size: 18px;
 }
 
 
-.nav-item :hover{
+.nav-items :hover{
     background-color: #a8b1a6;
 }
 .main-menu{
@@ -32,4 +34,7 @@
     font-size: xx-large;
     border-bottom: 1px solid rgb(236, 223, 204);
     color: #ecdfcc;
+}
+.card{
+    margin: 10px;
 }

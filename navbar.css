@@ -2,24 +2,30 @@
 .act{
     font-size: 20px;
     font-weight: bold;
-    background-color: red;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.379);
+    color: #3c3d37;
     border-radius: 5px;
     padding: 5px;
     margin:0 5px;
+    -webkit-text-stroke-color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: 0.7px;
+ 
   }
   
   .navbar-brand{
     font-size: 20px;
     font-weight: bold;
-    color: white;
+    color:  #ecdfcc;   
+ 
   }
+  
   .cart-dropdown {
     min-width: 320px;
     max-height: 400px;
     overflow-y: auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+ 
   }
   
   .cart-img {
@@ -27,6 +33,7 @@
     height: 60px;
     object-fit: cover;
     border-radius: 8px;
+
   }
   
   .remove {
@@ -84,7 +91,7 @@
   left: 0;
   width: 0;
   height: 3px;
-  background-color: red;
+  background-color: #ecdfcc;
   transition: width 0.4s ease-in-out;
 }
 .navbar-brand::after {
@@ -94,7 +101,7 @@
   right: 0;
   width: 0;
   height: 3px;
-  background-color: red;
+  background-color:  #ecdfcc;
   transition: width 0.4s ease-in-out;
 }
 .navbar-brand:hover::before {
