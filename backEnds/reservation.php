@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     mail($_POST['customer_email'], "Reservation Confirmation", "Your table has been reserved for " . $_POST['reservation_date'] . " at " . $_POST['reservation_time']);
 
-    header("Location: ../index2.php?success=1");
+    header("Location: ../reservationForm.php?success=1");
     exit();
 }
 ?>
