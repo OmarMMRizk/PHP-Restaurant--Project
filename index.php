@@ -16,7 +16,7 @@ $isAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
     <link rel="stylesheet" href="Styles/index/style.css">
     <link rel="stylesheet" href="Styles/index/all.min.css">
     <link rel="stylesheet" href="Styles/index/nav.css">
-    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 
