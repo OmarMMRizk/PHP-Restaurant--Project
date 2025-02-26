@@ -1,0 +1,180 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  /* background-color: #ddd; */
+}
+
+/* h5{
+  font-size: 40px;
+  color: black;
+font-weight: bold;  margin-bottom: 150px;
+} */
+
+
+
+
+/* css for categories */
+
+
+
+.cat-text{
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
+
+.cat-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50% ;
+  border: 5px solid #f7b2c0;
+}
+
+.cat-img:hover{
+transform: scale(1.1);
+}
+
+
+/* css for titles */
+
+
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes expandLines {
+  0% {
+      width: 0;
+  }
+  100% {
+      width: 100%;
+  }
+}
+
+.title ,.cat-text {
+  position: relative;
+  display: inline-block;
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 50px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.3s; 
+  overflow: hidden;
+}
+
+.title::before,
+.cat-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: red;
+  transition: width 0.4s ease-in-out;
+}
+
+.title::after,
+.cat-text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 3px;
+  background-color: red;
+  transition: width 0.4s ease-in-out;
+}
+
+.title:hover::before,
+.cat-text:hover::before {
+  width: 50%;
+}
+
+.title:hover::after,
+.cat-text:hover::after {
+  width: 50%;
+}
+
+
+
+
+#home,
+#Categories,
+#about,
+#contact {
+  padding: 60px 0;
+}
+#carouselExampleCaptions {
+  margin: 0 100px;
+}
+
+.limg {
+  width: 90%;
+  height: 700px;
+  margin: 0 auto;
+}
+
+
+
+.custom-card {
+  border: none;
+  overflow: hidden;
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.custom-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.image-container img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease-in-out;
+}
+
+
+
+.image-container:hover img {
+  transform: scale(1.1) ;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.top-img{
+  width: 120px;
+  height: 200px;
+}
+
+
+.icon{
+  display: block;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ddd;
+}
