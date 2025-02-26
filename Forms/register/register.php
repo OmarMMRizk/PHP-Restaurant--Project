@@ -1,5 +1,5 @@
 <?php
-include_once '../../backend/user.php';
+include_once '../../backend/modules/user.php';
 
 $first_name = $last_name = $email = $password = $confirm_password = $phone = "";
 $errors = [
