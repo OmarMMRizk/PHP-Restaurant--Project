@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="/Styles/Forms/register.css">
 </head>
 
 <body>
@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="row g-0">
                         
                         <div class="col-md-6 d-none d-md-block">
-                            <img src="sign.jpg" alt="Login Image" class="img-fluid">
+                            <img src="register.jpeg" alt="Login Image" class="img-fluid">
                         </div>
 
                        
@@ -138,9 +138,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                 <p class="text-center mt-3 small">Already have an account? <a href="../login/login.php">Login</a></p>
                             </div>
-                        </div> <!-- نهاية الفورم -->
-                    </div> <!-- نهاية row -->
-                </div> <!-- نهاية البطاقة -->
+                        </div> 
+                    </div>
+                </div> 
             </div>
         </div>
     </div>
