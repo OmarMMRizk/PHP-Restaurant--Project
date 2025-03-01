@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once 'backend/admin_check.php';
-include_once 'backend/category.php';
+include_once 'backend/modules/category.php';
 include_once 'backend/modules/product.php';
 
 $category = new Category();
