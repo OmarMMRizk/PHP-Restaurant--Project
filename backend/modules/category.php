@@ -1,5 +1,5 @@
 <?php
-include_once '../database/db.php'; 
+include_once '../backend/database/db.php'; 
 
 class Category {
     private $conn;

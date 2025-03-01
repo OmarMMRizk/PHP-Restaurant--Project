@@ -1,8 +1,8 @@
 <?php
 session_start();
-include_once 'backend/modules/admin_check.php';
-include_once 'backend/modules/category.php';
-include_once 'backend/modules/product.php';
+include_once '../backend/modules/admin_check.php';
+include_once '../backend/modules/category.php';
+include_once '../backend/modules/product.php';
 
 $category = new Category();
 $product = new Product();
