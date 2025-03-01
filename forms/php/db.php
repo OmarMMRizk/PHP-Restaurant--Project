@@ -4,7 +4,7 @@
 $host = 'localhost';
 $dbname = 'php_project';
 $username = 'root';
-$password = '';
+$password = 'H5#7*mfp';
 $pdo;
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
