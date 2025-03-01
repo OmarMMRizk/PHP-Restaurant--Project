@@ -7,10 +7,9 @@ session_start();
 
 $skip=true;
 if($_SERVER["REQUEST_METHOD"] == "GET"){
-    if($_GET['logout']){logout();}
+    if($_GET['logout']){logtout();}
     else if($_GET['key']){
         if(validate($_GET['key'])){
-            echo $_GET['key'];
            $_SESSION['confirmed']=true;
            $skip=false;
         }
@@ -20,20 +19,21 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 $text="Please, check your email to confirm your account !";
 $logText="Log Out";
 $href="/forms/php/confirm.php?logout=true";
-$home="/forms/php/home.php";
+$home="/index.php";
 if($_SESSION['confirmed']){
     $logText="Log In";
+    $href="/forms/php/login.php";
     $text="Email Confirmed Successfully";
     if($_SESSION['email']){
         $logText="Redirecting...";
         $href=$home;
-        if($skip){header("Location:$home");}else{ header("refresh:5;url=$home");}
+        if($skip){redirect("$home");}else{ header("refresh:5;url=$home");}
        
     }
 }
 
 else if(!$_SESSION['email']){
-    header("Location:/forms/php/login.php");
+    redirect("/forms/php/login.php");
 }
 
 if($_SERVER["REQUEST_METHOD"]=="POST" && $_POST['resend']=true){
