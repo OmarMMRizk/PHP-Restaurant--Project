@@ -105,44 +105,6 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            updateCartCount();
-        });
-
-        document.querySelectorAll(".addToCartBtn").forEach(button => {
-            button.addEventListener("click", function() {
-                addToCart(this);
-            });
-        });
-
-        function addToCart(button) {
-            const extras = [];
-            document.querySelectorAll("input[name='extras[]']:checked").forEach(extra => {
-                extras.push({
-                    name: extra.nextElementSibling.innerText,
-                    price: parseFloat(extra.value)
-                });
-            });
-            const order = {
-                name: button.dataset.name,
-                price: parseFloat(button.dataset.price),
-                image: button.dataset.image,
-                extras: extras
-            };
-
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            cart.push(order);
-            localStorage.setItem("cart", JSON.stringify(cart));
-            updateCartCount();
-            button.disabled = true;
-        }
-
-        function updateCartCount() {
-            const cart = JSON.parse(localStorage.getItem("cart")) || [];
-            document.getElementById('cart-count').innerText = cart.length;
-        }
-
-
 
         document.addEventListener("DOMContentLoaded", function() {
             fetchNotifications();
@@ -230,7 +192,7 @@
 
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.7.1.js"></script>
-    <!-- <script src="js/order.js"></script> -->
+    <script src="../js/order.js"></script>
 
 </body>
 
