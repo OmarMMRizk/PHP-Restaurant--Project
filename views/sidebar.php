@@ -6,6 +6,6 @@
         <a href="../suppliers/suppliers.php"><i class="fa fa-truck"></i> Suppliers</a>
         <a href="../reservations/reservationsList.php"><i class="fa fa-calendar-check"></i> Reservation</a>
         <a href="profile.php"><i class="fa fa-user"></i> Profile</a>
-        <a href="manageuser.php"><i class="fa fa-user"></i> users</a>
+        <a href="../user/manageuser.php"><i class="fa fa-user"></i> users</a>
 
     </div>
