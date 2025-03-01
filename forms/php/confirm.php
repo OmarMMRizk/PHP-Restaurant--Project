@@ -39,7 +39,7 @@ else if(!$_SESSION['email']){
 if($_SERVER["REQUEST_METHOD"]=="POST" && $_POST['resend']=true){
     $_POST['resend']=false;
     $user=fetch_user('email',$_SESSION['email']);
-    email($user['firstName'] ." ". $user['lastName'],$user['email'],'Confirm Your Email',"http://localhost:8080/forms/php/confirm.php");
+    email($user['first_name'] ." ". $user['last_name'],$user['email'],'Confirm Your Email',"http://localhost:8080/forms/php/confirm.php");
     $_SESSION['resend_confirmation']=true;
 }
 
