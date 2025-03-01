@@ -55,8 +55,8 @@ button {
   margin-bottom: 10%;
   width:60%;
   font-weight: bold;
-  background-color:rgb(74, 74, 172);
-  color:white
+  /* background-color:rgb(74, 74, 172); */
+  /* color:white */
 }
 
 .c {

@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"&&$_GET['key']){
 }
 
 if(!$_SESSION['password_key']){
-    header("Location:/forms/php/login.php"); 
+    redirect("/forms/php/login.php"); 
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
