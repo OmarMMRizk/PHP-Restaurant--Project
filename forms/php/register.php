@@ -86,7 +86,7 @@ if(!count($errors)&&count($_POST)){
         </div>
 
         <div class="c">
-            <button type="submit">Sign Up</button>
+            <button type="submit" style="background-color:blue;color:white">Sign Up</button>
             <hr>
         </div>
 

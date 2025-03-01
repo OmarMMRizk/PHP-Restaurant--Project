@@ -2,7 +2,7 @@
 
 require_once('hegazy_module.php');
 session_start();
-get_reviews();
+// get_reviews();
 // Handle form submission
 
 if(!$_SESSION['email']){header("Location:/forms/php/login.php");}

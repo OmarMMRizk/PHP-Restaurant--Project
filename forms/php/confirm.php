@@ -10,7 +10,6 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
     if($_GET['logout']){logout();}
     else if($_GET['key']){
         if(validate($_GET['key'])){
-            echo $_GET['key'];
            $_SESSION['confirmed']=true;
            $skip=false;
         }
@@ -23,6 +22,7 @@ $href="/forms/php/confirm.php?logout=true";
 $home="/forms/php/home.php";
 if($_SESSION['confirmed']){
     $logText="Log In";
+    $href="/forms/php/login.php";
     $text="Email Confirmed Successfully";
     if($_SESSION['email']){
         $logText="Redirecting...";
