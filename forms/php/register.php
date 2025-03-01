@@ -37,15 +37,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 if(!count($errors)&&count($_POST)){
-    if(fetch_user('email',$_POST['email'])){
+    if(fetch_user('email',$_POST['email'])&&false==true){
         global $errors;
         $errors['email']="Email is already registered";
     }else{
         $_POST['password']=md5($_POST['password']);
-        add_user($_POST['firstName'],$_POST['lastName'],$_POST['email'],$_POST['password']);
-        email($_POST['firstName'] ." ". $_POST['lastName'],$_POST['email'],'Confirm Your Email',"http://localhost:8080/forms/php/confirm.php");
+        if(
+            add_user($_POST['firstName'],$_POST['lastName'],$_POST['email'],$_POST['password'])
+            &&email($_POST['firstName'] ." ". $_POST['lastName'],$_POST['email'],'Confirm Your Email',"http://localhost:8080/forms/php/confirm.php")
+            ){
+            redirect("/forms/php/login.php?success=true");
+  
+            
 
-        header("Location:/forms/php/login.php?success=true"); 
+        }else{
+            $errors['email']="Failed to send a confirmation email.";
+        }
     }
 }
 ?>
@@ -86,7 +93,7 @@ if(!count($errors)&&count($_POST)){
         </div>
 
         <div class="c">
-            <button type="submit" style="background-color:blue;color:white">Sign Up</button>
+            <button type="submit" style="">Sign Up</button>
             <hr>
         </div>
 
