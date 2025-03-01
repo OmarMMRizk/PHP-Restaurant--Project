@@ -127,7 +127,7 @@ $isAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title.</p>
-                            <a href="#" class="btn btn-primary">Add To Cart</a>
+                            <a href="orders/order.php" class="btn btn-primary">Add To Cart</a>
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,7 @@ $isAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title.</p>
-                            <a href="#" class="btn btn-primary">Add To Cart</a>
+                            <a href="orders/order.php" class="btn btn-primary">Add To Cart</a>
                         </div>
                     </div>
                 </div>
@@ -153,7 +153,7 @@ $isAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title.</p>
-                            <a href="#" class="btn btn-primary">Add To Cart</a>
+                            <a href="orders/order.php" class="btn btn-primary">Add To Cart</a>
                         </div>
                     </div>
                 </div>
@@ -166,7 +166,7 @@ $isAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title.</p>
-                            <a href="#" class="btn btn-primary">Add To Cart</a>
+                            <a href="orders/order.php" class="btn btn-primary">Add To Cart</a>
                         </div>
                     </div>
                 </div>
