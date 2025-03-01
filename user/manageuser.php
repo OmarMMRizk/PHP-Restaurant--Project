@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif (isset($_POST['update_role'])) {
         $manager->updateUserRole($_POST['user_id'], $_POST['role']);
     }
-    header("Location:user/manageuser.php");
+    header("Location:manageuser.php");
     exit();
 }
 ?>
