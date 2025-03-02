@@ -36,6 +36,7 @@ form > div {
 }
 
 input {
+  /* margin:auto; */
   margin-top: 5%;
   margin-bottom: 1%;
   border: 0.25em solid;
@@ -43,6 +44,9 @@ input {
   padding: 3%;
   width: 35vw;
   font-size: 1em;
+  display: block;
+  justify-self: center;
+
 }
 
 p {
@@ -54,7 +58,9 @@ button {
   padding: 5%;
   border-radius: 1em;
   font-size: 120%;
-  margin-bottom: 10%;
+  justify-self: center;
+
+  margin-bottom: 5%;
   width:60%;
   font-weight: bold;
   /* background-color:rgb(74, 74, 172); */
@@ -75,7 +81,13 @@ textarea:focus,
 button:focus {
   outline: 0.1em solid blue;
 }
-
+textarea{
+  resize: none;
+  justify-self: center;
+  padding: 1em;
+  border-radius: 1em;
+  margin: 1em;
+}
 a {
   font-weight: bold;
   font-size: 130%;
@@ -83,4 +95,5 @@ a {
 
 label {
   font-size: 150%;
+  font-weight: bolder;
 }

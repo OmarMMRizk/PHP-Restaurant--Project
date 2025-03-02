@@ -1,5 +1,5 @@
 <?php 
-require_once('hegazy_module.php');
+require_once('../../backend/modules/module.php');
 
 $errors=[];
 
@@ -65,7 +65,7 @@ if(!count($errors)&&count($_POST)){
 </head>
 
 <body>
-
+    <br>
     <form class="hegazy-form" method="post" action="/forms/php/register.php" novalidate>
         <div class="c">
             <h1>Sign Up</h1>
@@ -105,7 +105,7 @@ if(!count($errors)&&count($_POST)){
             <a href="/forms/php/login.php">Alread have an account ?</a>
         </div>
     </form>
-
+    <br>
     <script>initialize();invalidate_all(<?=json_encode($errors); ?>,<?=json_encode($_POST);?>)</script>
 </body>
 

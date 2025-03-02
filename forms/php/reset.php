@@ -1,6 +1,6 @@
 <?php
 
-require_once('hegazy_module.php');
+require_once('../../backend/modules/module.php');
 
 
 $errors=[];
@@ -38,7 +38,7 @@ if(!count($errors)&&count($_POST)){
     else{
     if(
         update_user('password_reset',1,$user['id'])
-        &&email($user['firstName'] ." ". $user['lastName'],$user['email'], 'Reset Your Password', "http://localhost:8080/forms/php/password.php")
+        &&email($user['first_name'] ." ". $user['lastName'],$user['email'], 'Reset Your Password', "http://localhost:8080/forms/php/password.php")
 
     )  {
         $sent=true;

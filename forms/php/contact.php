@@ -1,5 +1,5 @@
 <?php 
-require_once("hegazy_module.php");
+require_once("../../backend/modules/module.php");
 
 $errors=[];
 
@@ -43,7 +43,7 @@ if(!count($errors)&&count($_POST)){
 </head>
 
 <body>
-
+    <br>
     <form class="hegazy-form" method="post" action="/forms/php/contact.php" novalidate>
         <div class="c">
             <h1>Contact Us</h1>
@@ -62,7 +62,7 @@ if(!count($errors)&&count($_POST)){
         </div>
         <div>
             <label for='content'>Content</label>
-            <textarea class='toValidate' style='display:block;width:100%;font-size:150%;' name='content' id='content' validation_required='Required Field' rows='10'></textarea>
+            <textarea class='toValidate' style='display:block;width:90%;font-size:150%;' name='content' id='content' validation_required='Required Field' rows='6' placeholder='Write Your Content'></textarea>
         </div>
 
         <div class='c'>
@@ -89,7 +89,7 @@ if(!count($errors)&&count($_POST)){
         </div>
 
     </form>
-
+        <br>
     <script src="/forms/validation.js"></script>
     <script>initialize();invalidate_all(<?=json_encode($errors); ?>,<?=json_encode($_POST);?>)</script>
 </body>
