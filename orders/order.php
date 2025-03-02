@@ -97,7 +97,7 @@
                     data-name="Pizza"
                     data-price="20"
                     data-quantity="1"
-                    data-image="images/pizza.jfif">
+                    data-image="../images/pizza.jfif">
                     Add to Cart
                 </button>
             </div>
