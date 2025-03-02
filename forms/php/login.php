@@ -4,7 +4,7 @@ require_once("hegazy_module.php");
 $errors=[];
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if($_GET['success']){
-        echo "<h1 style='color:green;text-align:center;text-shadow:0px 0px .1em black'>Registered successfully, please check your email for the confirmation message !</h1>";
+        echo "<h1 style='color:green;text-align:center;text-shadow:0px 0px .1em black;margin:auto;'>Registered successfully, please check your email for the confirmation message !</h1>";
     }
 }
 else if ($_SERVER["REQUEST_METHOD"] == "POST") {

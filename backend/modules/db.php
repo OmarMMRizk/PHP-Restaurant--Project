@@ -2,7 +2,7 @@
 
 
 $host = 'localhost';
-$dbname = 'php_project';
+$dbname = 'resturant';
 $username = 'root';
 $password = 'H5#7*mfp';
 $pdo;
@@ -27,19 +27,19 @@ function add_review($user_id, $rating, $review){
 function get_reviews(){
     global $pdo;
     try {
-        $stmt = $pdo->query("SELECT firstName, lastName, rating, review FROM reviews JOIN users ORDER BY reviews.created_at DESC LIMIT 5");
+        $stmt = $pdo->query("SELECT first_name, last_name, rating, review FROM reviews JOIN users ORDER BY reviews.created_at DESC LIMIT 5");
         $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);  
         return $reviews;
     } catch (PDOException $e) {
     }
 }
 
-function add_user($firstName, $LastName, $email, $password){
+function add_user($first_name, $last_name, $email, $password){
     global $pdo;
-    $add_user_stmt = $pdo->prepare("INSERT INTO users (firstName, LastName, email, password) VALUES (:firstName, :LastName, :email, :password)");
+    $add_user_stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, email, password) VALUES (:first_name, :last_name, :email, :password)");
 
     try {
-        $add_user_stmt->execute(['firstName' => $firstName, 'LastName' => $LastName, 'email' => $email, 'password' => $password]); 
+        $add_user_stmt->execute(['first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'password' => $password]); 
         return true;
     } catch (PDOException $e) {
     }
@@ -100,7 +100,6 @@ function fetch_all_users(){
 
 
 }
-
 function update_user($par,$val,$id){
     global $pdo;
     $stmt = $pdo->prepare("UPDATE users SET $par = :val WHERE id = :id");

@@ -13,8 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           case empty($value):
             $errors[$key]="is Empty";
             break;
-          case 'firstName':
-          case 'lastName':
+          case 'first_name':
+          case 'last_name':
             if(!preg_match('/^[a-zA-Z]{3,}$/', $value)){$errors[$key]="At least 3 alphabetical characters required";};
             break;
           case 'email':
@@ -43,8 +43,8 @@ if(!count($errors)&&count($_POST)){
     }else{
         $_POST['password']=md5($_POST['password']);
         if(
-            add_user($_POST['firstName'],$_POST['lastName'],$_POST['email'],$_POST['password'])
-            &&email($_POST['firstName'] ." ". $_POST['lastName'],$_POST['email'],'Confirm Your Email',"http://localhost:8080/forms/php/confirm.php")
+            add_user($_POST['first_name'],$_POST['last_name'],$_POST['email'],$_POST['password'])
+            &&email($_POST['first_name'] ." ". $_POST['last_name'],$_POST['email'],'Confirm Your Email',"http://localhost:8080/forms/php/confirm.php")
             ){
             redirect("/forms/php/login.php?success=true");
   
@@ -73,11 +73,11 @@ if(!count($errors)&&count($_POST)){
         </div>
         <div>
             <label for='fname'>First Name</label>
-            <input  class="toValidate"  validation_required="Required Field" validation_pattern="^[a-zA-z]{3,}$" validation_message="At least 3 alphabetical characters" name="firstName" id="fname" placeholder="Your First Name">
+            <input  class="toValidate"  validation_required="Required Field" validation_pattern="^[a-zA-z]{3,}$" validation_message="At least 3 alphabetical characters" name="first_name" id="fname" placeholder="Your First Name">
         </div>
         <div>
             <label for='lname'>Last Name</label>
-            <input id='lname' class="toValidate"  validation_required="Required Field" validation_pattern="^[a-zA-z]{3,}$" validation_message="At least 3 alphabetical characters" name="lastName" placeholder="Your Last Name">
+            <input id='lname' class="toValidate"  validation_required="Required Field" validation_pattern="^[a-zA-z]{3,}$" validation_message="At least 3 alphabetical characters" name="last_name" placeholder="Your Last Name">
         </div>
         <div>
             <label for='email'>Email</label>
