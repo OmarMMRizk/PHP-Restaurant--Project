@@ -17,7 +17,7 @@ $reviews=get_reviews();
 
                 <?php
                     foreach($reviews as $key=>$review){
-                        echo "<h4>".$review['firstName'].' '.$review['lastName']."</h4>";
+                        echo "<h4>".$review['first_name'].' '.$review['last_name']."</h4>";
                         echo "<input type='rating' readOnly stars=5 value=".$review['rating']." style='color:rgb(255, 100, 0);'>";
                         echo "<span>".$review['review']."</span>";
                     }

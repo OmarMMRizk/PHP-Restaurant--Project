@@ -2,9 +2,9 @@
 
 
 $host = 'localhost';
-$dbname = 'php_project';
+$dbname = 'restaurant';
 $username = 'root';
-$password = '';
+$password = 'Password@123';
 $pdo;
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

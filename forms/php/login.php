@@ -41,7 +41,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['email'] = $_POST['email'];
             $_SESSION['confirmed'] = $validate['confirmed'];
             $_SESSION['id']=$validate['id'];
-            header("Location:/forms/php/confirm.php");
+            redirect("/forms/php/confirm.php");
         }else{echo "<h1 style='color:red;text-align:center;text-shadow:0px 0px .1em black'>Invalid Credentials !</h1>";}
     }
     
