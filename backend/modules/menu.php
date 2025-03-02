@@ -11,7 +11,7 @@ class Product
         $this->conn = $database->connect();
     }
 
-    public function add($name, $desc, $price, $category_id)
+    public function add($name, $desc, $price, $category_id ,$image)
     {
         $stmt = $this->conn->prepare("INSERT INTO products (name, description, price, category_id,image) VALUES (?, ?, ?, ?,?)");
         $stmt->execute([$name, $desc, $price, $category_id,$image]);
