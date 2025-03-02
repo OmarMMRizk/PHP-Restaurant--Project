@@ -63,7 +63,7 @@
                     <?php if (!$isLoggedIn): ?>
                         <li class="nav-item"><a class="nav-link act" href="Forms/login/login.php">Login</a></li>
                     <?php else: ?>
-                        <li class="nav-item"><a class="nav-link act" href="backend/logout.php">Logout</a></li>
+                        <li class="nav-item"><a class="nav-link act" href="../backend/modules/logout.php">Logout</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
