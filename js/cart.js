@@ -1,6 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
     displayCartItems();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('success')) {
+        showSuccessAlert("تمت إضافة الطلب بنجاح");
+        history.replaceState({}, document.title, window.location.pathname); // Remove success param
+    }
 });
+
+function showSuccessAlert(message) {
+    const alertContainer = document.createElement("div");
+    alertContainer.innerHTML = `
+        <div class="alert alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-4 shadow-lg text-center" 
+                role="alert" 
+                style="z-index: 1050; width: 350px; background-color: #d4edda; color:  #28a745;">
+            <i class="fas fa-check-circle me-2"></i> ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    `;
+    document.body.appendChild(alertContainer);
+
+    setTimeout(() => {
+        alertContainer.remove();
+    }, 5000);
+}
 
 function displayCartItems() {
     const cartItemsContainer = document.getElementById('cartItemsContainer');
@@ -139,3 +162,43 @@ function removeAllItems() {
     localStorage.setItem('cart', JSON.stringify([]));
     displayCartItems();
 }
+
+function checkout() {
+    const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cartData.length === 0) {
+        alert('Your cart is empty.');
+        return;
+    }
+    let paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
+    let totalPrice = parseFloat(document.getElementById('totalPriceInput').value);
+
+    let requestData = {
+        payment_method: paymentMethod,
+        cart: cartData,
+        total_price: totalPrice
+    };
+
+    
+    if (paymentMethod === 'cod') {
+        localStorage.removeItem('cart');
+        document.querySelector("form").submit();
+        return;
+    }
+    fetch('http://localhost/ICC/restApp/payment.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert("Error: " + data.error);
+        } else if (data.success) {
+            alert("Order placed successfully!");
+            localStorage.removeItem('cart'); // Clear the cart after order is placed
+            window.location.href = "order_success.php"; // Redirect to order success page
+        } else if (data.redirectUrl) {
+            window.location.href = data.redirectUrl; // Redirect for Stripe payment
+        }
+    })
+    .catch(error => console.error("Error:", error));}

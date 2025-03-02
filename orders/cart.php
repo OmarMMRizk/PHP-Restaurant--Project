@@ -13,7 +13,7 @@
 </head>
 
 <body class="bg-light">
-<form action="php/place_order.php" method="post">
+<form action="../backend/modules/orders/place_order.php" method="post">
     <input type="hidden" name="total_price" id="totalPriceInput">
 
     <div class="container my-4">
