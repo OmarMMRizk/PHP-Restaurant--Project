@@ -1,0 +1,121 @@
+
+.act{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.379);
+    color: #3c3d37;
+    border-radius: 5px;
+    padding: 5px;
+    margin:0 5px;
+    -webkit-text-stroke-color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: 0.7px;
+ 
+  }
+  
+  .navbar-brand{
+    font-size: 20px;
+    font-weight: bold;
+    color:  #ecdfcc;   
+ 
+  }
+  
+  .cart-dropdown {
+    min-width: 320px;
+    max-height: 400px;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+ 
+  }
+  
+  .cart-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+
+  }
+  
+  .remove {
+    color: rgb(192, 0, 0);
+    font-size: 14px;
+    transition: 0.3s ease;
+  }
+  
+  .remove:hover {
+    color: red;
+    transform: scale(1.2);
+  }
+  
+  .dropdown-menu {
+    background: #fff;
+    padding: 15px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .cart-item:last-child {
+    border-bottom: none;
+  }
+  
+  .cart-total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .btn-checkout {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .btn-checkout:hover {
+    background-color: #218838;
+  }
+  
+  .navbar .dropdown-toggle::after {
+    display: none !important;}
+  
+
+/* css for brand hover */
+.navbar-brand::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #ecdfcc;
+  transition: width 0.4s ease-in-out;
+}
+.navbar-brand::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 3px;
+  background-color:  #ecdfcc;
+  transition: width 0.4s ease-in-out;
+}
+.navbar-brand:hover::before {
+  width: 50%;
+}
+.navbar-brand:hover::after {
+  width: 50%;
+}    
+
+/* css for icon on footer  */
+
+.icon{
+  display: block;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ddd;
+}
