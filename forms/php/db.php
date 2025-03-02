@@ -2,7 +2,7 @@
 
 
 $host = 'localhost';
-$dbname = 'restaurant';
+$dbname = 'resturant';
 $username = 'root';
 $password = 'Password@123';
 $pdo;

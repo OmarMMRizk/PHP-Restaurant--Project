@@ -146,7 +146,7 @@ $productsDesserts = $product->getDesserts();
 <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 ">
 
   <div class="card " id="Pizza">
-    <img src="<?= htmlspecialchars($product['image']) ?>"
+    <img src="<?=$product['image'] ?>"
         alt="<?= htmlspecialchars($product['name']) ?>" class="card-img-top">
     <div class="card-body text-center">
         <h5 class="card-title"><?= htmlspecialchars($product['name']) ?></h5>
