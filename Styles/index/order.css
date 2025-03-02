@@ -6,13 +6,12 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-image: url("../images/bg.jfif");
+    background-image: url("../../images/bg.jfif");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
     margin: 0;
 }
-
 
 .order-container .card {
     width: 20rem;
@@ -35,7 +34,7 @@ body {
 }
 
 .order-container {
-    height: 90vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,3 +96,4 @@ input[type="checkbox"] {
     color: #28a745;
     font-weight: bold;
 }
+
