@@ -5,6 +5,7 @@
         <a href="../category/categories.php"><i class="fa fa-th-list"></i> Categories</a>
         <a href="../suppliers/suppliers.php"><i class="fa fa-truck"></i> Suppliers</a>
         <a href="../reservations/reservationsList.php"><i class="fa fa-calendar-check"></i> Reservation</a>
+        <a href="../offeres/add_offer.php"><i class="fa fa-calendar-check"></i> Offers</a>
         <a href="profile.php"><i class="fa fa-user"></i> Profile</a>
         <a href="../user/manageuser.php"><i class="fa fa-user"></i> users</a>
 
