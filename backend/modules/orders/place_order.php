@@ -72,19 +72,18 @@ if (isset($_GET['session_id'])) {
 
             $order_id = $conn->lastInsertId();
 
-            // $orderItemStmt = $conn->prepare("INSERT INTO order_items (order_id, category_id, item, quantity, price) VALUES (:order_id, :category_id, :item, :quantity, :price)");
+            $orderItemStmt = $conn->prepare("INSERT INTO order_items (order_id, item,extras) VALUES (:order_id, :item,:extras)");
 
-            // foreach ($cart as $item) {
-            //     $orderItemStmt->bindParam(":order_id", $order_id);
-            //     $orderItemStmt->bindParam(":category_id", $item['category_id']);
-            //     $orderItemStmt->bindParam(":item", $item['name']);
-            //     $orderItemStmt->bindParam(":quantity", $item['quantity']);
-            //     $orderItemStmt->bindParam(":price", $item['price']);
-            //     $orderItemStmt->execute();
-            // }
+            foreach ($cart as $item) {
+                // Convert extras array to string
+                $extrasText = !empty($item['extras']) ? implode(', ', array_column($item['extras'], 'name')) : null;
 
-
-
+                $orderItemStmt->execute([
+                    ":order_id" => $order_id,
+                    ":item" => $item['name'],
+                    ":extras" => $extrasText
+                ]);
+            }
 
             $message = "Your order #$order_id has been placed successfully!";
             $notifyStmt = $conn->prepare("INSERT INTO notifications (user_id, message, is_read) VALUES (:user_id, :message, 0)");
