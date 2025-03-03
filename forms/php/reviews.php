@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 require_once('/backend/modules/module.php');
+=======
+require_once('../../backend/modules/module.php');
+>>>>>>> c9fc6b957b9af4c538b9839345a8a591b31241e9
 $reviews=get_reviews();
 
 ?>

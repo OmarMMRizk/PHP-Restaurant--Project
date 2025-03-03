@@ -4,7 +4,7 @@
 $host = 'localhost';
 $dbname = 'resturant';
 $username = 'root';
-$password = 'H5#7*mfp';
+$password = "Password@123";
 $pdo;
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

@@ -1,6 +1,6 @@
 <?php
 
-require_once('hegazy_module.php');
+require_once('../../backend/modules/module.php');
 session_start();
 // get_reviews();
 // Handle form submission
