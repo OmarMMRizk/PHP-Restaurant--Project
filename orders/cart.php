@@ -225,6 +225,13 @@ function checkout() {
     let paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
     let totalPrice = parseFloat(document.getElementById('totalPriceInput').value);
 
+      // Ensure cart data is sent with the form
+    let cartInput = document.createElement('input');
+    cartInput.type = 'hidden';
+    cartInput.name = 'cart';
+    cartInput.value = JSON.stringify(cartData);
+    document.querySelector("form").appendChild(cartInput);
+
     let requestData = {
         payment_method: paymentMethod,
         cart: cartData,

@@ -73,7 +73,7 @@ function fetch_user($par,$val){
 function validate_user($email,$password){
     global $pdo;
     $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email AND password = :password");
-  
+
     try {
         $stmt->execute(['email' => $email,'password'=>$password]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC); 
