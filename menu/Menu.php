@@ -1,3 +1,8 @@
+<?php
+session_start();
+$isLoggedIn = isset($_SESSION['emai']);
+$isAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
+?>
 
 <?php
 
@@ -27,6 +32,8 @@ $productsDesserts = $product->getDesserts();
     <link rel="stylesheet" href="../Styles/menu/MenuStyle.css">
     <link rel="stylesheet" href="../Styles/menu/navbar.css">
     <link rel="stylesheet" href="../Styles/menu/footerStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -34,78 +41,67 @@ $productsDesserts = $product->getDesserts();
 </head>
 
 <body class="body">
+  
+  
+ 
 <div class="header-navbar">
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-lg">
-        <div class="container">
-            <a class="navbar-brand" href="#">ITI Restaurant</a>
+   <div class="container">
+            <a class="navbar-brand" href="../index.php">ITI Restaurant</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto text-center">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-                    <li class="nav-item dropdown ">
-                        <a class="nav-link dropdown-toggle" href="#" id="cartDropdown" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-shopping-cart ms-3 " ></i>
+
+                    <?php if ($isAdmin): ?>
+                        <li class="nav-item"><a class="nav-link" href="../dashboard/dashboard.php">Dashboard</a></li>
+                    <?php endif; ?>
+                    <?php if ($isLoggedIn): ?>
+                        <li class="nav-item"><a class="nav-link" href="../userProfile/profile.php">Profile</a></li>
+                    <?php endif; ?>
+                    <li class="nav-item"><a class="nav-link" href="../reservations/reservationForm.php">Reserve a Table</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../menu/Menu.php">Menu</a></li>
+                    <li class="nav-item position-relative">
+                        <a class="nav-link" href="cart.php" id="cartDropdown" role="button">
+                            <i class="fas fa-shopping-cart ms-3"></i>
+                            <span id="cart-count" class="position-absolute top-3 start-100 translate-middle badge rounded-pill bg-danger">
+                                0
+                            </span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end cart-dropdown" aria-labelledby="cartDropdown">
-                            <li class="dropdown-cart-header d-flex justify-content-between">
-                                <span class="fw-bold">2 Items</span>
-                                <a href="cart.html" class="text-decoration-none text-primary">View Cart</a>
-                            </li>
-                            <hr>
-                            <li class="cart-item">
-                                <a href="javascript:void(0)" class="remove me-3" title="Remove">
-                                    <i class="fas fa-times"></i>
-                                </a>
-                                <div>
-                                    <img src="images/pizza.jpg" alt="#" class="cart-img">
-                                </div>
-                                <div class="ms-3">
-                                    <h6 class="mb-0"><a href="product-details.html" class="text-dark text-decoration-none">Apple Watch</a></h6>
-                                    <p class="mb-0 text-muted">1x - <span class="fw-bold">$99.00</span></p>
-                                </div>
-                            </li>   
-                            <li class="cart-item">
-                                <a href="javascript:void(0)" class="remove me-3" title="Remove">
-                                    <i class="fas fa-times"></i>
-                                </a>
-                                <div>
-                                    <img src="images/pizza.jpg" alt="#" class="cart-img">
-                                </div>
-                                <div class="ms-3">
-                                    <h6 class="mb-0"><a href="product-details.html" class="text-dark text-decoration-none">Wi-Fi Camera</a></h6>
-                                    <p class="mb-0 text-muted">1x - <span class="fw-bold">$35.00</span></p>
-                                </div>
-                            </li>
-                            <hr>
-                            <li class="d-flex justify-content-between align-items-center">
-                                <span class="cart-total">Total:</span>
-                                <span class="cart-total">$134.00</span>
-                            </li>
-                            <li class="text-center mt-3">
-                                <a href="checkout.html" class="btn btn-checkout w-100">Checkout</a>
-                            </li>
+                    </li>
+
+                    <li class="nav-item dropdown" >
+                        <a class="nav-link dropdown-toggle position-relative" href="#" id="notification-icon" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-bell ms-3"></i>
+                            <span id="notification-count" class="position-absolute top-3 start-100 translate-middle badge rounded-pill bg-danger">
+                                0
+                            </span>
+                        </a>
+                        <ul id="notification-list" class="dropdown-menu dropdown-menu-end p-2 shadow-sm" style="width: 300px; max-height: 300px; overflow-y: auto; z-index:999;">
+                            <li class="text-center text-muted m-2">No notifications</li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link act" href="#contact">Login</a></li>
-    
+                    <?php if (!$isLoggedIn): ?>
+                        <li class="nav-item"><a class="nav-link act" href="Forms/login/login.php">Login</a></li>
+                    <?php else: ?>
+                        <li class="nav-item "><a class="nav-link act" href="../backend/modules/logout.php">Logout</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
-    </nav></div>
+    </nav>
+</div>
 
 
     
     
-<div id="categories-nav"></div>
-    <div class="container">
-        <div class="row gap-">
 
-            <nav class="navbar navbar-expand-xl navbar-expand-md sticky-top">
+    <div class="container ">
+        <div class="row">
+
+            <nav class="navbar navbar-expand-xl navbar-expand-md  top-pos">
                 <div class="container-fluid">
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

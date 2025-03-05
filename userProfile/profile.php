@@ -3,7 +3,7 @@ session_start();
 include_once '../backend/database/db.php';
 include_once '../backend/modules/user.php';
 
-if (!isset($_SESSION['user_email'])) {
+if (!isset($_SESSION['email'])) {
     header("Location:../forms/php/login.php");
     exit;
 }
@@ -72,10 +72,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Profile</title>
     <link rel="stylesheet" href="../Styles/userProfile/profile.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Styles/index/nav.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    
 </head>
 <body>
-    <div class="container">
-        <h2>Profile</h2>
+
+    <?php include_once '../views/nav.php';?>
+
+    <div class="container my-3">
+        <h2 class="h2">Profile</h2>
 
         <?php if (!empty($success)): ?>
             <p class="success"><?= $success ?></p>
@@ -114,12 +123,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label>Confirm Password</label>
                     <input type="password" name="confirm_password">
 
-                    <button type="submit">Update Profile</button>
+                    <button id="bottons" type="submit">Update Profile</button>
                 </form>
             </div>
         </div>
 
         <!-- <a href="logout.php">Logout</a> -->
     </div>
+
+    <?php include_once '../views/footer.php'; ?>
+
 </body>
 </html>
