@@ -1,3 +1,46 @@
+<?php
+require '../backend/database/db.php';
+$database = new Database();
+$conn = $database->connect();
+
+$product_id = '';
+$product_name = '';
+$product_price = '';
+$product_image = '';
+$description = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Retrieve product data from POST request
+    $product_id = $_POST['id'] ?? '';
+    $product_name = $_POST['name'] ?? '';
+    $product_price = $_POST['price'] ?? '';
+    $product_image = $_POST['image'] ?? '';
+    $description = $_POST['description'] ?? '';
+} 
+
+if(isset($_GET['order_id'])){
+    $order_id = $_GET['order_id'];
+    $user_id = 1; // Replace with session user ID if available
+
+    $stmt = $conn->prepare("SELECT orders.*, order_items.*
+                            FROM orders
+                            JOIN order_items ON orders.id = order_items.order_id
+                            WHERE orders.id = :id AND orders.user_id = :user_id");
+    $stmt->bindParam(":id", $order_id);
+    $stmt->bindParam(":user_id", $user_id);
+    $stmt->execute();
+    $order_item = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($order_item) {
+        $product_id = $order_item['id'];
+        $product_name = $order_item['item'];
+        $product_price = $order_item['total_price'];
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,15 +101,17 @@
         </div>
     </nav>
 
+
     <div class="container my-2">
         <div class="card mx-auto" style="max-width: 300px;">
-            <img src="../images/pizza.jfif" class="card-img-top" alt="Pizza" style="height: 200px; object-fit: cover;" />
+            <img src="<?= htmlspecialchars($product_image) ?>" class="card-img-top" alt="<?= htmlspecialchars($product_name) ?>" style="height: 200px; object-fit: cover;" />
             <div class="card-body">
-                <h5 class="card-title">Pizza</h5>
+                <h5 class="card-title"><?= htmlspecialchars($product_name) ?></h5>
                 <p class="card-text">
-                    Enjoy our delicious pizza made with fresh ingredients and baked to perfection.
+                    <p class="card-text"><?= $description ?></p> 
                 </p>
-                <p class="card-text fw-bold">Price: $20</p>
+                <p class="card-text fw-bold">Price: $<?= number_format($product_price, 2) ?></p>
+
                 <div class="list-group">
                     <div class="list-group-item d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
@@ -82,24 +127,19 @@
                             <label for="mayonnaise" class="ms-2">Mayonnaise</label>
                         </div>
                         <span id="price-mayonnaise" class="fw-bold">5$</span>
-                    </div>
-                    <!-- <div class="list-group-item d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
-                            <input type="checkbox" name="extras[]" value="5" id="Cheese">
-                            <label for="Cheese" class="ms-2">Cheese</label>
-                        </div>
-                        <span id="price-Cheese" class="fw-bold">5$</span>
-                    </div> -->
+                    </div>                    
+                        
+                        <button 
+                            type="button"
+                            class="btn btn-primary w-100 addToCartBtn mt-3"
+                            data-id="<?= htmlspecialchars($product_id) ?>"
+                            data-name="<?= htmlspecialchars($product_name) ?>"
+                            data-price="<?= htmlspecialchars($product_price) ?>"
+                            data-image="<?= htmlspecialchars($product_image) ?>">
+                            Add to Cart
+                        </button>
                 </div>
-                <button
-                    type="button"
-                    class="btn btn-primary w-100 addToCartBtn mt-3"
-                    data-name="Pizza"
-                    data-price="20"
-                    data-quantity="1"
-                    data-image="../images/pizza.jfif">
-                    Add to Cart
-                </button>
+
             </div>
         </div>
     </div>
@@ -115,7 +155,7 @@
         });
 
         function fetchNotifications() {
-            fetch("php/get_notifications.php") // Fetch all notifications from the backend
+            fetch("../backend/modules/notifications/get_notifications.php") // Fetch all notifications from the backend
                 .then(response => response.json())
                 .then(data => {
                     let countSpan = document.getElementById("notification-count");
@@ -156,7 +196,7 @@
 
         // Mark notifications as read
         function markNotificationsAsRead() {
-            fetch("php/mark_notifications_read.php") // API to mark all notifications as read
+            fetch("../backend/modules/notifications/mark_notifications_read.php") // API to mark all notifications as read
                 .then(response => response.json())
                 .then(() => {
                     document.getElementById("notification-count").style.display = "none";
@@ -187,8 +227,6 @@
                 .catch(error => console.log("Error marking notifications as read:", error));
         });
     </script>
-
-
 
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.7.1.js"></script>
